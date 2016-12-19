@@ -1,0 +1,88 @@
+<div class="page-container" ng-swipe-down="nextPage()" ng-swipe-up="prevPage()">
+    <div class="nav-overlay en">
+        <svg class="side-nav-background" viewBox="0 0 1 1" preserveAspectRatio="none">
+            <polygon points="0 0,0 0,0 1,0 1">
+                <animate attributeType="XML"
+                         attributeName="points"
+                         from="0 0,0 0,0 1,0 1" to="0 0,1 0,1 1,0 1"
+                         begin="indefinite"
+                         dur="360ms"
+                         fill="freeze"
+                />
+            </polygon>
+        </svg>
+        <div class="side-nav">
+            <div class="chapter-info">
+                <h1 class="chapter-name">
+                    Chapter
+                    <span class="number">{{chapterIndex+1}}</span>
+                </h1>
+                <h1 class="part-name">
+                    Part
+                    <span class="number">{{pageNum}}</span>
+                </h1>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="chapter-indicator" ng-repeat="chapter in navigationChapters">
+                        <a class="chapter-index">
+                            <span ng-if="chapter.index!=1" class="chapter-index-bounce"></span>
+                            <span class="detify"></span>
+                            <span class="chapter-index-active"></span>
+
+                            <!--chapter-index-hover-->
+                        </a>
+                        <!--分割线-->
+                        <div class="page-dividers">
+                            <div class="timeline-progress"></div>
+                            <span class="part-divider" ng-repeat="page in chapter.page">
+                                <span class="part-divider-base hor"></span>
+                                <span class="part-divider-progress hor"></span>
+                                <span class="part-divider-base vert"></span>
+                                <span class="part-divider-progress vert"></span>
+                            </span>
+                        </div>
+                        <div class="chapter-copy">
+                            <div style="position: relative;display: inline-block;" ng-repeat="title1 in chapter.title1">
+                                <div>{{title1}}</div>
+                            </div>
+                            <div style="position: relative;display: inline-block;" ng-repeat="title2 in chapter.title2">
+                                <div>{{title2}}</div>
+                            </div>
+                            <div ng-if='chapter.title3' style="position: relative;display: inline-block;" ng-repeat="title3 in chapter.title3">
+                                <div>{{title3}}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social-share">
+                <a class="share">
+                    <img src="assets/ui/icon-facebook.svg" width="20" height="20">
+                </a>
+                <a class="share">
+                    <img src="assets/ui/icon-instagram.svg" width="20" height="20">
+                </a>
+                <a class="share">
+                    <img src="assets/ui/icon-twitter.svg" width="20" height="20">
+                </a>
+            </div>
+            <a class="select-chapter-button" ui-sref="/en/0/0">
+                SELECT CHAPTER <span>{{chapterIndex+1}}/{{pageNum}}</span>
+            </a>
+        </div>
+        <a class="nav-controls" ng-click="togglesideNav()">
+            <svg class="base-controls" x="0" y="0" viewBox="0 0 25 200" style="pointer-events: none;">
+                <line id="navLineTop" x1="2" y1="5" x2="23" y2="5"></line>
+                <line id="navLineBottom" x1="2" y1="21" x2="23" y2="21"></line>
+            </svg>
+            <svg class="cross-controls" x="0" y="0" viewBox="0 0 25 200" style="pointer-events: none;">
+                <line id="crossBottom" x1="23" y1="13" x2="23" y2="13"></line>
+                <line id="crossTop" x1="23" y1="13" x2="2" y2="13"></line>
+            </svg>
+        </a>
+    </div>
+    <div ui-view style="width: 100%;height: 100%;">
+    </div>
+</div>

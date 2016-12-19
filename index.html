@@ -1,0 +1,60 @@
+<!doctype html>
+<html ng-app="joho" ng-controller="JOHOCtrl">
+
+<head>
+    <!-- MWD -->
+    <meta charset="utf-8">
+    <title>J. Hornig - JOHO's | Follow the journey of the JOHO's bean</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/photos/favicon-32x32.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+
+</head>
+
+
+<body>
+<div class="microsite-content" ng-mouse-wheel-up="prevPage()" ng-mouse-wheel-down="nextPage()">
+    <div class="frame">
+        <span class="top"></span>
+        <span class="right"></span>
+        <span class="bottom"></span>
+        <span class="left"></span>
+    </div>
+    <div class="ui bottom-left">
+        <div class="copy" ng-click="toggleSound()">
+            <span class="light">sound</span>
+            <b class="switch">on</b>
+        </div>
+    </div>
+    <div class="ui bottom-right">
+        <div class="page-switch">
+            <a class="prev-page" ng-click="prevPage()">
+                <img src="assets/ui/arrow_prev_page.svg">
+            </a>
+            <a class="next-page" ng-click="nextPage()">
+                <img src="assets/ui/arrow_next_page.svg">
+            </a>
+        </div>
+    </div>
+    <!--ui-view-->
+    <div ui-view class="joho-main-container">
+
+    </div>
+    <div class="fs-cursor-container">
+        <div class="open-cursor">
+            <img src="assets/ui/cursor_plus.png" alt="">
+        </div>
+        <div class="close-cursor" style="opacity: 0">
+            <img src="assets/ui/cursor_close.png" alt="">
+        </div>
+    </div>
+    <audio src="assets/audio/Loud-birds-early-morning.mp3" loop></audio>
+</div>
+
+</body>
+
+</html>
